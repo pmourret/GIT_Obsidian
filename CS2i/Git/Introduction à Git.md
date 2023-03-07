@@ -73,6 +73,19 @@ gitGraph:
 
 ```
 
+### 'Organisations' GitHub
+
+```mermaid
+graph TD
+	Github --> projet1
+	Github --> projet2
+	Github --> Organisation
+	Organisation --> orgProjet1
+	Organisation --> orgProjet2
+```
+
+
+
 
 ## Configurer l'accès à GitHub
 
