@@ -98,6 +98,6 @@ Host github.com # Label du serveur distant = Le nom du serveur
 
     User git # Nom d'utilisateur
 
-    IdentityFile ~/.ssh/id_ed25519 # Chemin vers la clef privée à utiliser
+    IdentityFile ~/.ssh/[clef_privée] # Chemin vers la clef privée à utiliser
 ```
 
