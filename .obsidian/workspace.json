@@ -1,0 +1,156 @@
+{
+  "main": {
+    "id": "94546b7decb3b0f8",
+    "type": "split",
+    "children": [
+      {
+        "id": "b456f5aba4f141e0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d4681c4d88fbe19c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS2i/Git/Introduction à Git.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0339f3e732fcc82b",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc6420bff8e59f1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "635350c109659b1b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a69777c66de488fa",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3b1848f01418300a",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3a95142563a17cda",
+    "type": "split",
+    "children": [
+      {
+        "id": "f7b2f3b9e857bfb6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dbfeccc4c9b7cea1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CS2i/Git/Introduction à Git.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cd7066fc09b2819c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CS2i/Git/Introduction à Git.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "aa5b5a650f428d13",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1b326bc288e91aac",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CS2i/Git/Introduction à Git.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Ouvrir le sélecteur rapide": false,
+      "graph:Ouvrir la vue graphique": false,
+      "canvas:Créer une nouvelle toile": false,
+      "daily-notes:Ouvrir la note quotidienne": false,
+      "templates:Insérer le modèle": false,
+      "command-palette:Ouvrir la palette de commandes": false
+    }
+  },
+  "active": "635350c109659b1b",
+  "lastOpenFiles": [
+    "CS2i/Sans titre.md",
+    "CS2i/Git/Introduction à Git.md",
+    "CS2i/Git",
+    "CS2i"
+  ]
+}
