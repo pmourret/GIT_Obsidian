@@ -25,8 +25,6 @@ graph LR
 
 ## Principales commandes GIT
 
-### Initialiser un dépôt GIT
-
 ```shell
 # Initialiser un dépôt GIT
 git init
@@ -58,6 +56,24 @@ git config --global user.email "mail"
 
 # Vérifier la configuration
 git config --list
+
+# Lister les dépôts
+git remote
+git remote -v # Version verbeuse
+
+# Se connecter au dépôt Git
+git remote add [nom_depot] [@serveur_distant]
+
+# Pousser une branche pour la première fois 
+# sur un dépôt distant
+git push -u origin main
+
+# Pousser une branche par la suite
+git push origin main
+git push 
+
+# Liste détaillée des dépôts distants 
+git remote -v
 ```
 
 ### Schéma d'un système de commits 
@@ -83,8 +99,6 @@ graph TD
 	Organisation --> orgProjet1
 	Organisation --> orgProjet2
 ```
-
-
 
 
 ## Configurer l'accès à GitHub
