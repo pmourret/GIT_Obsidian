@@ -20,3 +20,4 @@
 	this->upperAxeY ; // Bord supérieur 
 	this->bottomAxeY ; // Bord inférieur
 ```
+
