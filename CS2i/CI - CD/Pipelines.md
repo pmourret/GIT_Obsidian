@@ -7,10 +7,50 @@
 
 - **Docker hub: GitHub Runner :** https://hub.docker.com/r/tcardonne/github-runner
 
-# Arborescence du projet
+- **Installation d'un Gitlab Runner (Docker) :**  https://docs.gitlab.com/runner/install/docker.html
+
+# CI - CD : 
+
+- Le CI - CD correspond à un ensemble de pratique permettant d'accéler les étapes de déploiements.
+	- CI : Continuous Integrations -> Intégration Continue
+		- Cherche à automatiser les opérations autour du développement
+	- CD : Continuous Deployment -> Déploiement Continu
+		- Cherche à automatiser les opérations autour du déploiement
+		
+- Schéma de fonctionnement dans la chaîne CI : 
+
+```mermaid
+graph LR
+dev(Développeurs) -->
+scm(Dépôt SCM) -->
+srvInt(Serveur d'intégration) -->
+repo(Repository)
 
 ```
 
+- Schéma de fonctionnement dans la chaîne CD :
+
+```mermaid
+graph LR
+repo(Repository) -->
+tests(Environnements de tests) -->
+prod(Mise en production)
+```
+
+- Le CI - CD permet donc : 
+	- Une mise en production plus rapides 
+	- Une mise en production plus sûre grâce à une suite de tests automatisé et une inspection continue du code à la recherche de potentielles failles 
+
+- Afin d'automatiser tout ces processus et selon les dépôts utilisés il est nécessaire d'utiliser des pipelines (Gitlab) ou workflows (Github).
+	- Les pipelines correspondent à des scripts qui se déclenchent en fonction de différentes actions réalisées.
+
+- L'exécution de ces scripts (Pipelines ou Workflows) doit être réalisée à l'aide de **runners**. 
+	- Les runners sont des machines (physiques ou virtuelles) dans laquelle différentes tâches vont être réalisée, ces tâches sont définies par les scripts fournis (=> pipelines)
+
+
+# Arborescence du projet
+
+```
 root
 |
 |__ compose-inte.yaml
@@ -31,7 +71,6 @@ root
 |__ .gitignore
 |
 |__ .gitlab-ci.yml
-
 ```
 
 # Création d'un self-hosted runner
