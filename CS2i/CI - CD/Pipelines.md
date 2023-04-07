@@ -3,11 +3,15 @@
 
 - **Comprendre les actions :**  https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions?learn=getting_started&learnProduct=actions
 
+- **Gitlab CI/CD Docker variables :** https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+
 - **Syntaxe des workflows :**  https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#run-name
 
 - **Docker hub: GitHub Runner :** https://hub.docker.com/r/tcardonne/github-runner
 
 - **Installation d'un Gitlab Runner (Docker) :**  https://docs.gitlab.com/runner/install/docker.html
+
+- **Installation d'un GitLab Runner (Debian) :** https://docs.gitlab.com/runner/install/linux-repository.html
 
 # CI - CD : 
 
@@ -38,7 +42,7 @@ prod(Mise en production)
 ```
 
 - Le CI - CD permet donc : 
-	- Une mise en production plus rapides 
+	- Une mise en production plus rapide
 	- Une mise en production plus sûre grâce à une suite de tests automatisé et une inspection continue du code à la recherche de potentielles failles 
 
 - Afin d'automatiser tout ces processus et selon les dépôts utilisés il est nécessaire d'utiliser des pipelines (Gitlab) ou workflows (Github).
@@ -141,7 +145,89 @@ GITHUB_ACCESS_TOKEN=le_token_du_runner
 
 ### Création basique :
 
+- Afin d'installer le runner de Gitlab il faut réaliser les actions suivantes : 
+	- [ ] Ajouter le dépôt officiel de Gitlab
+	- [ ] Exécuter un apt install du packet 
+
+```bash
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+```
+
+```bash
+sudo apt-get install gitlab-runner
+```
+
 ### Création d'un runner au sein d'un conteneur :
+
+- Pour installer le runner au sein d'un conteneur il est possible d'utiliser docker compose.
+- Le fichier compose.yml est structuré de la sorte :
+
+```yaml
+version: '3.9'
+# Création des volumes propres au container
+volumes:
+  config:
+  home:
+  cache:
+
+# Déclaration des services
+services:
+  
+  runner:
+	# Récupération de l'image du runner
+    image: gitlab/gitlab-runner:${RUNNER_VERSION:-latest}
+	# Toujours redémarrer le conteneur
+    restart: always
+	# Variables d'environnement du conteneur
+	# Ces variables sont précisées dans la documentation de Gitlab
+    environment:
+	  # Le nom du runner -> précisé dans un fichier .env
+      RUNNER_NAME: ${COMPOSE_PROJECT_NAME}
+	  # L'url de l'API 
+      API_URL: ${GITLAB_SERVER_URL: -valeur_par_defaut}/api/v4
+	  # L'url du serveur gitlab
+      CI_SERVER_URL: ${GITLAB_SERVER_URL:-valeur_par_defaut}/ci
+	  # Le token permettant la connexion (Personnal Access Token)
+      REGISTRATION_TOKEN: ${RUNNER_TOKEN:-123456789}
+	  
+      CONCURRENT: ${RUNNER_CONCURRENT:-1}
+
+      CHECK_INTERVAL: ${RUNNER_CHECK_INTERVAL:-1}
+
+      DOCKER_VOLUMES: /var/run/docker.sock:/var/run/docker.sock
+	# Précise quel shell doit être utilisé
+    entrypoint: "bash"
+	# Bind des volumes aux dossiers nécessaires
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - config:/etc/gitlab-runner
+      - home:/home/gitlab-runner
+      - cache:/cache
+      
+    healthcheck:
+      test: "gitlab-runner verify --name ${COMPOSE_PROJECT_NAME} 2>&1 | grep -q alive"
+      start_period: 10s
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+    command: |
+
+      -c 'set -e
+
+          printf "\\nSetting configuration...\\n"
+
+          mkdir -p /etc/gitlab-runner
+
+          echo -e " log_level = \"warning\"\n concurrent = $${CONCURRENT}\n check_interval = $${CHECK_INTERVAL}\n\n [session_server]\n session_timeout = 3600 " > /etc/gitlab-runner/config.toml
+
+          printf "\\nRegistering runner...\\n"
+          gitlab-runner register --non-interactive --executor docker --docker-image docker:dind --locked=false --docker-privileged --run-untagged=${RUN_UNTAGGED:-true} --tag-list=${RUNNER_TAG_LIST:-notag}
+          
+          printf "\\nRunning runner...\\n"
+          gitlab-runner run --user=gitlab-runner --working-directory=/home/gitlab-runner'
+```
+
 
 # Création d'un pipeline : 
 
