@@ -64,12 +64,12 @@ graph LR
 
 ### Création d'un runner au sein d'un conteneur :
 
-- Il est possible de conteneurisé un runner pour cela il est nécessaire de :
-    - [ ] Créer un Token d'accès sur github
-    - [ ] Créer un dossier contenant le fichier **compose.yml** sur la machine hôte
-    - [ ] Exécuter dans ce dossier le conteneur à l'aide de :
-		**docker compose up -d** 
-    - [ ] Créer un fichier **.env** contenant les variables nécessaires au conteneur.
+Il est possible de conteneurisé un runner pour cela il est nécessaire de :
+
+- [ ] Créer un Token d'accès sur github
+- [ ] Créer un dossier contenant le fichier **compose.yml** sur la machine hôte
+- [ ] Exécuter dans ce dossier le conteneur à l'aide de : **docker compose up -d** 
+- [ ] Créer un fichier **.env** contenant les variables nécessaires au conteneur.
 
 - Le fichier **compose.yml** contient les éléments suivants :
 
@@ -87,6 +87,7 @@ services:
 
 - Le fichier **.env** contient les variables suivantes :
 ```text
+RUNNER_NAME=le_nom_du_runner
 
 RUNNER_REPOSITORY_URL=https://github.com/url/depot
 
