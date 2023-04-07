@@ -68,11 +68,7 @@ graph LR
     - [ ] Créer un Token d'accès sur github
     - [ ] Créer un dossier contenant le fichier **compose.yml** sur la machine hôte
     - [ ] Exécuter dans ce dossier le conteneur à l'aide de :
-        ```bash
-
-        docker compose up -d
-
-```
+		**docker compose up -d** 
     - [ ] Créer un fichier **.env** contenant les variables nécessaires au conteneur.
 
 - Le fichier **compose.yml** contient les éléments suivants :
