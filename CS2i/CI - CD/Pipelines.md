@@ -143,4 +143,95 @@ GITHUB_ACCESS_TOKEN=le_token_du_runner
 
 ### Création d'un runner au sein d'un conteneur :
 
+# Création d'un pipeline : 
+
+## Github : 
+
+- Les pipelines sur Github sont nommés "Workflows".
+- Les workflows sont définies dans un fichier au format .YAML placé dans un dossier à la racine du projet 
+- Le chemin de ce dossier est le suivant : 
+```
+root
+|
+|__ .github
+|	|
+|	|__ workflows
+|		|
+|		|__ workflow1.yaml
+|		|__ workflow2.yaml
+|
+|__ src
+```
+
+- Les principaux éléments composants un fichier workflow.yaml sont les suivants : 
+
+| Clef | Description|
+| ---- | ------------ |
+| name | Le nom du workflow, unique pour chaque fichier |
+| on | Evénement déclencheur (push, merge..) |
+| jobs | Ensemble de tâches exécutée sur le runner, par défaut les jobs sont exécutés parrallélement. |
+| steps | Correspond à des actions prédéfinies ou personnalisées |
+	
+
+Dans notre cas le fichier .yaml est construit de la sorte : 
+
+```yaml
+# Nom du workflow (Pipeline) :
+
+name: Build Docker Image
+
+# Quand déclencher le workflow
+
+on:
+  # Au moment du push :
+  push:
+    # Quand le push est réalisé sur la branche main
+    branches: ['main']
+    # Et qu'il existe des changements dans les fichiers suivants
+    paths:
+      - src/**/*
+      - Dockerfile
+      - .github/**/*
+
+# Définition des tâches :
+jobs:
+  Build:
+    # Définition du runner -> Ici self-hosted : Runner personnel
+    runs-on: self-hosted
+    # Définition des différentes étapes
+    steps:
+      # Définition de la version des actions à utiliser
+      - uses: actions/checkout@v3
+      - name: Log to registry
+        # Ceci exécute une commande donnée sous la forme d'une chaîne de caractére
+        run: echo ${{secrets.RUNNER_PTA}} | docker login -u ${{github.actor}} --password-stdin ghcr.io
+        
+      - name: Build docker image
+        run: docker image build -t ghcr.io/${GITHUB_REPOSITORY}:latest --build-arg BASE_IMAGE=httpd:2.4 .
+
+      - name: Push on registry
+        run: docker image push ghcr.io/${GITHUB_REPOSITORY}:latest
+
+      - name: Logout
+        run: docker logout ghcr.io
+
+  # Déploiement de l'image docker
+
+  Deploy:
+    runs-on: self-hosted
+    # Dépendance avec le job précisé dans un tableau
+    needs: ['Build']
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Log to registry
+        run: echo ${{ secrets.RUNNER_PTA}} | docker login -u ${{ github.actor }} --password-stdin ghcr.io
+        
+      - name: Deploy app
+        run: docker-compose -f compose-prod.yaml up -d
+
+      - name: Logout
+        run: docker logout ghcr.io
+```
 
