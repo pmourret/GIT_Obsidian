@@ -76,24 +76,15 @@ graph LR
     - [ ] Créer un fichier **.env** contenant les variables nécessaires au conteneur.
 
 - Le fichier **compose.yml** contient les éléments suivants :
+
 ```yaml
-
 version: '3.7'
-
-  
-
 services:
-
     githubrunner:                  # Nom du service
-
         image: tcardonne/github-runner:latest  # Image à récupérer
-
         env_file:
-
-            - ./ghrunner.env # Fichier des variables d'environnements
-
+        - ./ghrunner.env # Fichier des variables d'environnements
         volumes:
-
             - /var/run/docker.sock:/var/run/docker.sock
 
 ```
