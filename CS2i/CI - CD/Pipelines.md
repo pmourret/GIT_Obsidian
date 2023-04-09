@@ -124,7 +124,7 @@ services:
         env_file:
         - ./ghrunner.env # Fichier des variables d'environnements
         volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
+        - /var/run/docker.sock:/var/run/docker.sock
 
 ```
 
@@ -320,4 +320,7 @@ jobs:
       - name: Logout
         run: docker logout ghcr.io
 ```
+
+## Gitlab 
+
 
