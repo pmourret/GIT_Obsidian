@@ -1,4 +1,5 @@
-
+- [x] Génération des décharghes
+	- [ ] Changer le chemin 
 - [ ] Génération des codes barres
 	- [ ] Salariés
 		- [ ] Génération du code barre à la création
