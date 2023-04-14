@@ -31,4 +31,30 @@
 		- Le champ 'raison_sorti' ne pouvait pas être vide à la création
 			- Attribution d'une valeur par défaut à la création => None
 
-- [ ] Erreur "Path traversal attempt" à l'upload des fichiers
+- [x] Erreur "Path traversal attempt" à l'upload des fichiers
+
+- [x]  Duplication des noms dans la colonne "Détenu par" : 
+	- [x] Téléphones
+	- [x] Matériel
+	- [x] Badge
+	- [x] Carte
+	- [x] Lignes Téléphonique
+
+	- La désatribution systèmatique n'est pas réalisée lors de l'attribution 
+		- CORRECTIF : 
+	``` python
+	object = Table.objects.get(id)
+	attribute = Table.objects.get(id = str(request.POST.get('field')))
+	 
+	if object.champ is None:
+		object.champ.add(attribute)
+	else:
+		# Call detachement_method(request, id)
+		detachement_method(request, id)
+		object.champ.add(attribute)
+	
+    ```
+
+- [ ] N'intègre pas sur la restitution les badges
+
+- [ ] Relier les anciens documents avec le container
