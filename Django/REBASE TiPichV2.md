@@ -1,0 +1,232 @@
+## MODULES V1 --> REBASE:
+
+- [ ] appWeb --> rebase__tipichv2
+	- [ ] /static --> static
+		- [ ] css --> css
+			- [ ] bootstrap --> bootstrap
+				- [ ] css --> X
+				- [ ] js --> X
+				- [ ] bootstrap.css <-- NEW
+				- [ ] bootstrap.rtl.css <-- NEW
+				- [ ] bootstrap-grid.rtl.css <-- NEW
+				- [ ] bootstrap-reboot.css <-- NEW
+				- [ ] bootstrap-reboot.rtl.css <-- NEW
+				- [ ] bootstrap-utilities.css <-- NEW
+				- [ ] bootstrap-utilities.rtl.css <-- NEW
+				- [ ] 403.css
+				- [ ] base.css
+				- [ ] scrollBar.css
+				- [ ] sidebar.css
+				- [ ] test.css
+				- [ ] test_triangle.css
+		- [ ] images --> images
+			- [ ] ico_tipich.png
+			- [ ] img-01.png
+			- [ ] Logo-virage.png
+			- [ ] Logo-virage2.jpg
+			- [ ] logo-virage-pdf.jpg
+		- [ ] js --> js
+			- [ ] bootstrap <-- NEW
+				- [ ] bootstrap.bundle.js
+				- [ ] bootstrap.esm.js
+				- [ ] bs-init.js
+				- [ ] script.min.js
+				- [ ] theme.js
+		- [ ] themes
+			- [ ] darkly
+				- [ ] bootstrap.min.css
+			- [ ] quartz
+				- [ ] bootstrap.min.css
+			- [ ] sketchy
+				- [ ] bootstrap.min.css
+			- [ ] vapor
+				- [ ] bootstrap.min.css
+			- [ ] virageConseil
+				- [ ] virageconseil.css
+			- [ ] zephyr
+				- [ ] bootstrap.min.css
+	- [ ] init.py
+	- [ ] asgi.py
+	- [ ] settings.py
+	- [ ] urls.py
+	- [ ] wsgi.py
+- [ ] besoinRH --> human_ressources
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] views.py
+- [ ] compte --> account
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] decorators.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] contrats_materiel --> materials_contracts
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] dashboard
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] debug
+	- [ ] debug.log
+- [ ] document --> documents
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] ligneTelephonique --> phone_lines
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] logs
+	- [ ] app_error
+- [ ] materiel --> computers
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] filtres.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] media
+	- [ ] employees_documents
+- [ ] mission --> missions
+	- [ ] /migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] db_mission_example.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] objet_tipich --> app_logic
+	- [ ] init.py
+	- [ ] CodeBarGenerator.py --> BarcodeGenerator.py
+	- [ ] GestionAD.py -->ActiveDirectoryLinker.py
+	- [ ] Mail_sender.py -->MailSender.py
+	- [ ] TiPichLogger --> ApplicationLogger.py
+	- [ ] Unassigner.py
+- [ ] salaries --> employees
+	- [ ] migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] societe --> companies
+	- [ ] migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] telephones --> phones
+	- [ ] migrations
+		- [ ] init.py
+	- [ ] init.py
+	- [ ] admin.py
+	- [ ] apps.py
+	- [ ] forms.py
+	- [ ] models.py
+	- [ ] tests.py
+	- [ ] urls.py
+	- [ ] views.py
+- [ ] template
+	- [ ] compte --> accounts
+		- [ ] connexion.html --> login.html
+		- [ ] interdit.html --> forbidden.html
+		- [ ] landing.html --> X
+	- [ ] contrat_materiel --> materials_contract
+		- [ ] index.html
+	- [ ] dashboard
+		- [ ] index.html
+		- [ ] index_new.html
+	- [ ] DOCXTemplate
+		- [ ] pdf.html
+		- [ ] TemplateDecharge.docx
+		- [ ] TemplateRestitution.docx
+		- [ ] test.html
+	- [ ] ligneTelephonique
+		- [ ] ajout_ligne_telephonique.html
+		- [ ] index.html
+		- [ ] ligneTelephonique.html
+		- [ ] modifier_ligne.html
+		- [ ] recherche_ligne.html
+	- [ ] materiel
+		- [ ] ajout_materiel.html
+		- [ ] badge_en_recupération.html
+		- [ ] carte_carb_a_rendre.html
+		- [ ] contrat-materiel.html
+		- [ ] index.html
+		- [ ] materiel.html
+		- [ ] modifier_materiel.html
+		- [ ] pc_en_recuperation.html
+		- [ ] scanner.html
+		- [ ] suivi_salaries.html
+		- [ ] tel_en_recuperation.html
+	- [ ] mission
+		- [ ] mission_list.html
+	- [ ] salaries
+		- [ ] 
+	- [ ] service_info
+	- [ ] societe
+	- [ ] telephones
+	- [ ] 403.html
+	- [ ] 500.html
+	- [ ] master-template.html
+	- [ ] statistiques.html
+- [ ] templatetags
+	- [ ] init.py
+	- [ ] replace_by_escape.py
+	- [ ] replace_escape_by_none.py
